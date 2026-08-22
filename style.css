@@ -28,6 +28,12 @@ html {
     scroll-snap-type: y mandatory;
 }
 
+.hero,
+.site-section,
+.contact-section {
+    scroll-snap-align: start;
+}
+
 
 body {
     background-color: var(--green);
@@ -717,7 +723,7 @@ h1 {
    ========================================================= */
 
 .contact-section {
-    min-height: 90vh;
+    min-height: 100vh;
 }
 
 
@@ -975,78 +981,4 @@ h1 {
 }
 
 
-    .skills-group {
-        gap: 22px;
-
-        padding-right: 44px;
-    }
-
-
-    .skills-group span {
-        font-size: 10px;
-    }
-
-
-    .site-section {
-        padding:
-            90px 24px;
-
-        display: block;
-    }
-
-
-    .section-content {
-        margin-top: 50px;
-    }
-
-
-    .section-content h2 {
-        font-size:
-            clamp(
-                55px,
-                17vw,
-                100px
-            );
-    }
-
-
-    .about-details {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-
-        margin-top: 70px;
-    }
-
-
-    .project {
-        grid-template-columns:
-            35px
-            1fr
-            30px;
-    }
-
-
-    .project-meta {
-        display: none;
-    }
-
-
-    .project-info h3 {
-        font-size: 18px;
-    }
-
-
-    .post {
-        grid-template-columns:
-            50px
-            1fr
-            25px;
-    }
-
-
-    .post-title {
-        font-size: 16px;
-    }
-
-}
+ 
