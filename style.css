@@ -580,9 +580,9 @@ h1 {
     display: grid;
 
     grid-template-columns:
-        60px
-        2fr
-        1fr
+        80px
+        1.5fr
+        0.5fr
         40px;
 
     align-items: center;
@@ -590,7 +590,7 @@ h1 {
     gap: 20px;
 
     padding:
-        30px 0;
+        25px 0;
 
     border-bottom:
         1px solid var(--black);
@@ -705,6 +705,7 @@ h1 {
 
 
 .post-arrow {
+   color: var(--coral);
     text-align: right;
 }
 
