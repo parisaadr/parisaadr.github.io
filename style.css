@@ -832,9 +832,9 @@ h1 {
     h1 {
         font-size:
             clamp(
-                44px,
-                13vw,
-                68px
+                38px,
+                11vw,
+                58px
             );
 
         line-height: 0.88;
