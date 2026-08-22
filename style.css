@@ -25,8 +25,15 @@
 
 html {
     scroll-behavior: auto;
+
+    /*
+        Each major homepage section becomes
+        a scroll snap point.
+    */
+
     scroll-snap-type: y mandatory;
 }
+
 
 .hero,
 .about-section,
@@ -39,6 +46,7 @@ html {
 
 body {
     background-color: var(--green);
+
     color: var(--black);
 
     font-family:
@@ -49,6 +57,7 @@ body {
         sans-serif;
 
     cursor: none;
+
 
     /*
         Background grid
@@ -84,7 +93,9 @@ body {
 
 a {
     color: inherit;
+
     text-decoration: none;
+
     cursor: none;
 }
 
@@ -99,19 +110,9 @@ a {
     top: 0;
     left: 0;
 
-    /*
-        The cursor should never interfere
-        with clicking anything underneath it.
-    */
-
     pointer-events: none;
 
     z-index: 9999;
-
-    /*
-        Start slightly behind the mouse
-        so the symbol feels centered.
-    */
 
     transform:
         translate(-50%, -50%);
@@ -124,15 +125,7 @@ a {
 
     line-height: 1;
 
-    /*
-        Prevent text selection.
-    */
-
     user-select: none;
-
-    /*
-        A tiny amount of smoothing.
-    */
 
     transition:
         color 0.2s ease,
@@ -163,11 +156,6 @@ a {
     white-space: nowrap;
 }
 
-
-/*
-    When hovering a link,
-    JavaScript adds .is-clicking
-*/
 
 .custom-cursor.is-clicking {
     transform:
@@ -475,8 +463,6 @@ h1 {
         120px
         clamp(24px, 5vw, 72px);
 
-    
-
     display: grid;
 
     grid-template-columns:
@@ -495,13 +481,6 @@ h1 {
     letter-spacing: 0.12em;
 }
 
-.about-section,
-.work-section,
-.notes-section,
-.contact-section {
-    height: 100vh;
-    min-height: 100vh;
-}
 
 .section-content {
     max-width: 1000px;
@@ -589,7 +568,7 @@ h1 {
    ========================================================= */
 
 .project-list {
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 
@@ -607,7 +586,7 @@ h1 {
     gap: 20px;
 
     padding:
-        30px 0;
+        25px 0;
 
     border-top:
         1px solid var(--black);
@@ -625,6 +604,7 @@ h1 {
 
 .project:hover {
     padding-left: 15px;
+
     padding-right: 15px;
 
     background-color:
@@ -670,11 +650,48 @@ h1 {
 
 
 /* =========================================================
+   MORE LINKS
+   ========================================================= */
+
+.more-link {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+
+    border-bottom:
+        1px solid var(--black);
+
+    padding-bottom: 5px;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.more-link:hover {
+    color: var(--coral);
+
+    border-color: var(--coral);
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
    NOTES
    ========================================================= */
 
 .post-list {
-    margin-top: 80px;
+    margin-top: 70px;
 
     border-top:
         2px solid var(--black);
@@ -692,7 +709,7 @@ h1 {
     gap: 20px;
 
     padding:
-        25px 0;
+        22px 0;
 
     border-bottom:
         1px solid var(--black);
@@ -701,6 +718,7 @@ h1 {
 
 .post:hover {
     padding-left: 15px;
+
     padding-right: 15px;
 
     background-color:
@@ -920,6 +938,11 @@ h1 {
     }
 
 
+    /*
+        Keep the content comfortably inside
+        the mobile viewport.
+    */
+
     .section-content {
         margin-top: 50px;
     }
@@ -953,11 +976,19 @@ h1 {
        PROJECTS
        ----------------------------------------------------- */
 
+    .project-list {
+        margin-top: 50px;
+    }
+
+
     .project {
         grid-template-columns:
             35px
             1fr
             30px;
+
+        padding:
+            20px 0;
     }
 
 
@@ -971,15 +1002,39 @@ h1 {
     }
 
 
+    .project-info p {
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------------------
+       MORE LINKS
+       ----------------------------------------------------- */
+
+    .more-link {
+        margin-top: 25px;
+
+        font-size: 10px;
+    }
+
+
     /* -----------------------------------------------------
        NOTES
        ----------------------------------------------------- */
+
+    .post-list {
+        margin-top: 50px;
+    }
+
 
     .post {
         grid-template-columns:
             50px
             1fr
             25px;
+
+        padding:
+            20px 0;
     }
 
 
@@ -987,7 +1042,32 @@ h1 {
         font-size: 16px;
     }
 
+
+    /* -----------------------------------------------------
+       CONTACT
+       ----------------------------------------------------- */
+
+    .contact-section {
+        min-height: 100svh;
+    }
+
+
+    .email {
+        margin-top: 55px;
+
+        font-size:
+            clamp(
+                18px,
+                6vw,
+                30px
+            );
+    }
+
+
+    .social-links {
+        gap: 20px;
+
+        margin-top: 40px;
+    }
+
 }
-
-
- 
