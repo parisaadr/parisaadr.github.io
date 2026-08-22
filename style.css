@@ -42,6 +42,8 @@ body {
 
     cursor: none;
 
+    overflow-x: hidden;
+
     background-image:
         linear-gradient(
             rgba(6, 9, 4, 0.045) 1px,
@@ -126,10 +128,6 @@ a {
 
 .cursor-star {
     display: block;
-
-    transition:
-        opacity 0.15s ease,
-        transform 0.2s ease;
 }
 
 
@@ -273,7 +271,7 @@ a {
     flex-direction: column;
 
     padding:
-        110px
+        100px
         clamp(24px, 5vw, 72px)
         0;
 
@@ -457,7 +455,7 @@ h1 {
     min-height: 100vh;
 
     padding:
-        120px
+        70px
         clamp(24px, 5vw, 72px);
 
     display: grid;
@@ -478,6 +476,8 @@ h1 {
     font-weight: 800;
 
     letter-spacing: 0.12em;
+
+    padding-top: 5px;
 }
 
 
@@ -512,7 +512,7 @@ h1 {
 .section-intro {
     max-width: 650px;
 
-    margin-top: 50px;
+    margin-top: 35px;
 
     font-size:
         clamp(
@@ -530,7 +530,7 @@ h1 {
    ========================================================= */
 
 .about-details {
-    margin-top: 80px;
+    margin-top: 65px;
 
     display: grid;
 
@@ -569,7 +569,7 @@ h1 {
    ========================================================= */
 
 .project-list {
-    margin-top: 80px;
+    margin-top: 55px;
 
     border-top:
         2px solid var(--black);
@@ -580,9 +580,9 @@ h1 {
     display: grid;
 
     grid-template-columns:
-        80px
-        1.5fr
-        0.5fr
+        60px
+        2fr
+        1fr
         40px;
 
     align-items: center;
@@ -590,7 +590,7 @@ h1 {
     gap: 20px;
 
     padding:
-        25px 0;
+        23px 0;
 
     border-bottom:
         1px solid var(--black);
@@ -625,7 +625,7 @@ h1 {
 
 
 .project-info p {
-    margin-top: 8px;
+    margin-top: 7px;
 
     font-size: 13px;
 }
@@ -652,7 +652,7 @@ h1 {
    ========================================================= */
 
 .post-list {
-    margin-top: 80px;
+    margin-top: 55px;
 
     border-top:
         2px solid var(--black);
@@ -670,7 +670,7 @@ h1 {
     gap: 20px;
 
     padding:
-        25px 0;
+        21px 0;
 
     border-bottom:
         1px solid var(--black);
@@ -705,7 +705,6 @@ h1 {
 
 
 .post-arrow {
-   color: var(--coral);
     text-align: right;
 }
 
@@ -756,7 +755,7 @@ h1 {
 .email {
     display: inline-block;
 
-    margin-top: 80px;
+    margin-top: 60px;
 
     font-size:
         clamp(
@@ -787,7 +786,7 @@ h1 {
 
     gap: 30px;
 
-    margin-top: 50px;
+    margin-top: 45px;
 }
 
 
@@ -940,7 +939,7 @@ h1 {
         min-height: 100svh;
 
         padding:
-            90px 24px;
+            65px 24px;
 
         display: block;
 
@@ -948,8 +947,13 @@ h1 {
     }
 
 
+    .section-label {
+        padding-top: 0;
+    }
+
+
     .section-content {
-        margin-top: 50px;
+        margin-top: 35px;
     }
 
 
@@ -964,7 +968,7 @@ h1 {
 
 
     .section-intro {
-        margin-top: 35px;
+        margin-top: 30px;
 
         font-size: 18px;
     }
@@ -980,7 +984,7 @@ h1 {
 
         gap: 25px;
 
-        margin-top: 55px;
+        margin-top: 50px;
     }
 
 
@@ -989,7 +993,7 @@ h1 {
        ----------------------------------------------------- */
 
     .project-list {
-        margin-top: 55px;
+        margin-top: 45px;
     }
 
 
@@ -1002,7 +1006,7 @@ h1 {
         gap: 12px;
 
         padding:
-            22px 0;
+            20px 0;
     }
 
 
@@ -1031,7 +1035,7 @@ h1 {
        ----------------------------------------------------- */
 
     .post-list {
-        margin-top: 55px;
+        margin-top: 45px;
     }
 
 
@@ -1044,7 +1048,7 @@ h1 {
         gap: 12px;
 
         padding:
-            20px 0;
+            18px 0;
     }
 
 
@@ -1075,7 +1079,7 @@ h1 {
 
 
     .email {
-        margin-top: 55px;
+        margin-top: 50px;
 
         font-size:
             clamp(
