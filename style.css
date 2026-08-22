@@ -27,26 +27,15 @@ html {
     scroll-behavior: auto;
 
     /*
-        Each major homepage section becomes
-        a scroll snap point.
+        Sections gently snap into place
+        instead of aggressively fighting the scroll.
     */
-
-    scroll-snap-type: y mandatory;
-}
-
-
-.hero,
-.about-section,
-.work-section,
-.notes-section,
-.contact-section {
-    scroll-snap-align: start;
+    scroll-snap-type: y proximity;
 }
 
 
 body {
     background-color: var(--green);
-
     color: var(--black);
 
     font-family:
@@ -57,7 +46,6 @@ body {
         sans-serif;
 
     cursor: none;
-
 
     /*
         Background grid
@@ -93,10 +81,22 @@ body {
 
 a {
     color: inherit;
-
     text-decoration: none;
-
     cursor: none;
+}
+
+
+/* =========================================================
+   SECTION SNAP
+   ========================================================= */
+
+.hero,
+.about-section,
+.work-section,
+.notes-section,
+.contact-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 
@@ -274,7 +274,8 @@ a {
    ========================================================= */
 
 .hero {
-    min-height: 100vh;
+    height: 100svh;
+    min-height: 100svh;
 
     display: flex;
 
@@ -284,6 +285,8 @@ a {
         110px
         clamp(24px, 5vw, 72px)
         0;
+
+    overflow: hidden;
 }
 
 
@@ -407,6 +410,12 @@ h1 {
     animation:
         moveSkills
         25s linear infinite;
+
+    /*
+        Prevent animation from causing
+        unnecessary rendering work.
+    */
+    will-change: transform;
 }
 
 
@@ -457,19 +466,26 @@ h1 {
    ========================================================= */
 
 .site-section {
-    min-height: 100vh;
+    height: 100svh;
+    min-height: 100svh;
 
     padding:
-        120px
+        110px
         clamp(24px, 5vw, 72px);
 
     display: grid;
 
     grid-template-columns:
-        minmax(120px, 1fr)
+        minmax(140px, 1fr)
         minmax(0, 3fr);
 
     gap: 40px;
+
+    /*
+        Prevent content from making the
+        section physically taller.
+    */
+    overflow: hidden;
 }
 
 
@@ -483,7 +499,11 @@ h1 {
 
 
 .section-content {
-    max-width: 1000px;
+    min-width: 0;
+
+    max-width: 1100px;
+
+    overflow: hidden;
 }
 
 
@@ -498,11 +518,11 @@ h1 {
     font-size:
         clamp(
             55px,
-            9vw,
-            140px
+            8vw,
+            125px
         );
 
-    line-height: 0.9;
+    line-height: 0.86;
 
     letter-spacing: -0.06em;
 }
@@ -511,7 +531,7 @@ h1 {
 .section-intro {
     max-width: 650px;
 
-    margin-top: 50px;
+    margin-top: 40px;
 
     font-size:
         clamp(
@@ -529,7 +549,7 @@ h1 {
    ========================================================= */
 
 .about-details {
-    margin-top: 100px;
+    margin-top: 70px;
 
     display: grid;
 
@@ -555,7 +575,7 @@ h1 {
 
 
 .about-details p {
-    margin-top: 15px;
+    margin-top: 12px;
 
     font-size: 15px;
 
@@ -564,35 +584,55 @@ h1 {
 
 
 /* =========================================================
-   PROJECTS
+   CASE STUDIES
    ========================================================= */
 
-.project-list {
-    margin-top: 70px;
+.work-section .section-content {
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 0;
 }
 
+
+.project-list {
+    margin-top: 55px;
+
+    flex: 1;
+
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   PROJECT
+   --------------------------------------------------------- */
 
 .project {
     display: grid;
 
     grid-template-columns:
-        60px
-        2fr
-        1fr
-        40px;
+        50px
+        minmax(0, 2fr)
+        minmax(120px, 1fr)
+        35px;
 
     align-items: center;
 
     gap: 20px;
 
     padding:
-        25px 0;
+        20px 0;
 
     border-top:
         1px solid var(--black);
 
     transition:
-        padding 0.25s ease;
+        padding 0.25s ease,
+        background-color 0.25s ease;
 }
 
 
@@ -604,7 +644,6 @@ h1 {
 
 .project:hover {
     padding-left: 15px;
-
     padding-right: 15px;
 
     background-color:
@@ -619,22 +658,29 @@ h1 {
 }
 
 
+.project-info {
+    min-width: 0;
+}
+
+
 .project-info h3 {
-    font-size: 22px;
+    font-size: 20px;
 
     letter-spacing: -0.03em;
 }
 
 
 .project-info p {
-    margin-top: 8px;
+    margin-top: 6px;
 
-    font-size: 13px;
+    font-size: 12px;
+
+    line-height: 1.3;
 }
 
 
 .project-meta {
-    font-size: 10px;
+    font-size: 9px;
 
     font-weight: 800;
 
@@ -645,44 +691,7 @@ h1 {
 .project-arrow {
     color: var(--coral);
 
-    font-size: 25px;
-}
-
-
-/* =========================================================
-   MORE LINKS
-   ========================================================= */
-
-.more-link {
-    display: inline-block;
-
-    margin-top: 30px;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.1em;
-
-    border-bottom:
-        1px solid var(--black);
-
-    padding-bottom: 5px;
-
-    transition:
-        color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-
-.more-link:hover {
-    color: var(--coral);
-
-    border-color: var(--coral);
-
-    transform:
-        translateX(5px);
+    font-size: 22px;
 }
 
 
@@ -691,7 +700,7 @@ h1 {
    ========================================================= */
 
 .post-list {
-    margin-top: 70px;
+    margin-top: 60px;
 
     border-top:
         2px solid var(--black);
@@ -718,7 +727,6 @@ h1 {
 
 .post:hover {
     padding-left: 15px;
-
     padding-right: 15px;
 
     background-color:
@@ -750,7 +758,8 @@ h1 {
    ========================================================= */
 
 .contact-section {
-    min-height: 100vh;
+    height: 100svh;
+    min-height: 100svh;
 }
 
 
@@ -812,6 +821,17 @@ h1 {
 
 @media (max-width: 768px) {
 
+    /*
+        Mobile gets normal document scrolling.
+        We don't want the desktop snap behavior
+        fighting touch scrolling.
+    */
+
+    html {
+        scroll-snap-type: none;
+    }
+
+
     body {
         cursor: auto;
     }
@@ -850,10 +870,13 @@ h1 {
        ----------------------------------------------------- */
 
     .hero {
+        height: 100svh;
         min-height: 100svh;
 
         padding:
             100px 24px 0;
+
+        overflow: hidden;
     }
 
 
@@ -929,22 +952,22 @@ h1 {
        ----------------------------------------------------- */
 
     .site-section {
+        height: auto;
         min-height: 100svh;
 
         padding:
             90px 24px;
 
         display: block;
+
+        overflow: visible;
     }
 
 
-    /*
-        Keep the content comfortably inside
-        the mobile viewport.
-    */
-
     .section-content {
         margin-top: 50px;
+
+        overflow: visible;
     }
 
 
@@ -973,11 +996,18 @@ h1 {
 
 
     /* -----------------------------------------------------
-       PROJECTS
+       CASE STUDIES
        ----------------------------------------------------- */
 
+    .work-section .section-content {
+        display: block;
+    }
+
+
     .project-list {
-        margin-top: 50px;
+        margin-top: 60px;
+
+        overflow: visible;
     }
 
 
@@ -988,7 +1018,7 @@ h1 {
             30px;
 
         padding:
-            20px 0;
+            22px 0;
     }
 
 
@@ -1002,28 +1032,12 @@ h1 {
     }
 
 
-    .project-info p {
-        font-size: 12px;
-    }
-
-
-    /* -----------------------------------------------------
-       MORE LINKS
-       ----------------------------------------------------- */
-
-    .more-link {
-        margin-top: 25px;
-
-        font-size: 10px;
-    }
-
-
     /* -----------------------------------------------------
        NOTES
        ----------------------------------------------------- */
 
     .post-list {
-        margin-top: 50px;
+        margin-top: 60px;
     }
 
 
@@ -1032,9 +1046,6 @@ h1 {
             50px
             1fr
             25px;
-
-        padding:
-            20px 0;
     }
 
 
@@ -1048,26 +1059,8 @@ h1 {
        ----------------------------------------------------- */
 
     .contact-section {
+        height: auto;
         min-height: 100svh;
-    }
-
-
-    .email {
-        margin-top: 55px;
-
-        font-size:
-            clamp(
-                18px,
-                6vw,
-                30px
-            );
-    }
-
-
-    .social-links {
-        gap: 20px;
-
-        margin-top: 40px;
     }
 
 }
