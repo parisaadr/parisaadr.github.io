@@ -24,12 +24,14 @@
 
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     scroll-snap-type: y mandatory;
 }
 
 .hero,
-.site-section,
+.about-section,
+.work-section,
+.notes-section,
 .contact-section {
     scroll-snap-align: start;
 }
@@ -493,6 +495,13 @@ h1 {
     letter-spacing: 0.12em;
 }
 
+.about-section,
+.work-section,
+.notes-section,
+.contact-section {
+    height: 100vh;
+    min-height: 100vh;
+}
 
 .section-content {
     max-width: 1000px;
