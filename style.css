@@ -450,7 +450,9 @@ h1 {
     }
 
     to {
-        transform: translateX(-50%);
+        transform: translateX(
+            calc(-50% - 30px)
+        );
     }
 
 }
@@ -789,6 +791,10 @@ h1 {
     }
 
 
+    /* -----------------------------------------------------
+       NAVIGATION
+       ----------------------------------------------------- */
+
     .navbar {
         grid-template-columns:
             1fr
@@ -797,7 +803,9 @@ h1 {
         padding:
             24px;
 
-        font-size: 10px;
+        font-size: 11px;
+
+        letter-spacing: 0.1em;
     }
 
 
@@ -806,61 +814,92 @@ h1 {
     }
 
 
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
     .hero {
+        min-height: 100svh;
+
         padding:
-            120px 24px 0;
+            100px 24px 0;
     }
 
 
     .hero-content {
-        padding-left: 20px;
+        padding-left: 16px;
     }
 
 
     h1 {
         font-size:
             clamp(
-                52px,
-                15vw,
-                90px
+                44px,
+                13vw,
+                68px
             );
+
+        line-height: 0.88;
     }
 
 
     .intro {
         width: 100%;
 
-        max-width: 520px;
+        max-width: 500px;
 
-        margin-top: 32px;
+        margin-top: 28px;
 
-        font-size: 19px;
+        font-size: 16px;
+
+        line-height: 1.4;
     }
 
+
+    /* -----------------------------------------------------
+       LOCATION
+       ----------------------------------------------------- */
 
     .location {
+        padding-bottom: 10px;
+
         font-size: 9px;
+
+        letter-spacing: 0.12em;
     }
 
 
-    .skills {
-        font-size: 10px;
+    /* -----------------------------------------------------
+       SKILLS
+       ----------------------------------------------------- */
+
+    .skills-wrapper {
+        padding:
+            11px 0;
     }
 
 
     .skills-group {
-        gap: 22px;
+        gap: 20px;
 
-        padding-right: 44px;
+        padding-right: 40px;
     }
 
 
     .skills-group span {
-        font-size: 10px;
+        font-size: 9px;
+
+        letter-spacing: 0.08em;
     }
 
 
+    /* -----------------------------------------------------
+       SECTIONS
+       ----------------------------------------------------- */
+
     .site-section {
+        min-height: 100svh;
+
         padding:
             90px 24px;
 
@@ -883,14 +922,23 @@ h1 {
     }
 
 
+    /* -----------------------------------------------------
+       ABOUT
+       ----------------------------------------------------- */
+
     .about-details {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
         gap: 35px;
 
         margin-top: 70px;
     }
 
+
+    /* -----------------------------------------------------
+       PROJECTS
+       ----------------------------------------------------- */
 
     .project {
         grid-template-columns:
@@ -910,6 +958,10 @@ h1 {
     }
 
 
+    /* -----------------------------------------------------
+       NOTES
+       ----------------------------------------------------- */
+
     .post {
         grid-template-columns:
             50px
@@ -921,5 +973,7 @@ h1 {
     .post-title {
         font-size: 16px;
     }
+
+   
 
 }
